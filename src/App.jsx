@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import React, { useState,useState } from "react";
 import Gallery from "./components/Gallery";
+import DestinationSelector from "./components/DestinationSelector";
 import "./styles/styles.css";
+
 
 //App's root component
 function App() {
   const [tours, setTours] = useState([]);
+  const [destinations, setDestinations] = useState([]);
+  const [selectedDestination, setSelectedDestination] = useState("");
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false); 
 
   // This removes the tour from the list
   const removesTours = (id) => {

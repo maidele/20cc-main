@@ -1,21 +1,58 @@
-body{
-    font-family: 'Arial, sans-serif';
-    background-color: #f0f0f0;
-    color: hsl(0, 0%, 20%);    
-}
-main{
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-h1{
-    font-size: 2.5em;
-    margin-bottom: 20px;
-}
-h2{
-    font-size: 2em;
-    margin-bottom: 15px;
-}  
+body {
+    font-family: 'Times New Roman', Times, serif, sans-serif;
+    margin: 0;
+    padding: 2rem;
+    background-color: #f3adad;
+  }
+  
+  main {
+    text-align: center;
+  }
+  
+  .gallery {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    margin-top: 2rem;
+  }
+  
+  .tour-card {
+    background: white;
+    border-radius: 0.7rem;
+    padding: 1rem;
+    box-shadow: 0 3px 8px rgba(201, 82, 82, 0.1);
+  }
+  
+  .tour-card img {
+    width: 110%;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+  
+  .tour-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .tour-price {
+    color: #49a6e9;
+    font-weight: bold;
+  }
+  
+  button {
+    background: none;
+    border: none;
+    color: #49a6e9;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  
+  .btn {
+    background: lab(45.37% 66.99 49.93);
+    color: lab(42.17% 7.51 2.34);
+    padding: 0.6rem 1rem;
+    border-radius: 0.3rem;
+    margin-top: 2rem;
+  }
