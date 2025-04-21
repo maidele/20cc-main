@@ -17,6 +17,69 @@ function App() {
     const newTours = tours.filter((tour) => tour.id !== id);
     setTours(newTours);
   };
+  const filterTours = (destination) => {
+    if (destination === "All") {
+      return tours;
+    }
+    return tours.filter((tour) => tour.destination === destination);
+  }
+  const handleDestinationChange = (destination) => {
+    setSelectedDestination(destination);
+  };
+  const filteredTours = filterTours(selectedDestination);
+  const fetchTours = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch("./components/DestinationSelector");
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const data = await response.json();
+      setTours(data);
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+  const fetchDestinations = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch("https://api.example.com/destinations");
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const data = await response.json();
+      setDestinations(data);
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+  React.useEffect(() => {
+    fetchTours();
+    fetchDestinations();
+  }, []);
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+  if (!tours.length) {
+    return <div>No tours available</div>;
+  }
+  if (!destinations.length) {
+    return <div>No destinations available</div>;
+  }
+  if (!selectedDestination) {
+    return <div>Please select a destination</div>;
+  }
+  if (filteredTours.length === 0) {
+    return <div>No tours available for this destination</div>;
+  }
+  
 
   return (  
     <main>

@@ -38,6 +38,24 @@ const Gallery = ({ tours, setTours, onRemove }) => {
       ? tours
       : tours.filter((tour) => tour.category === selectedCategory);
 
+      if (loading) {
+  return <div>Loading...</div>;
+}
+  if (error) {
+    return <div>{error}</div>;
+  }
+  if (filteredTours.length === 0) {
+    return <div>No tours available</div>;
+  }
+  if (!tours.length) {
+    return <div>No tours available</div>;
+  }
+  if (!selectedCategory) {
+    return <div>Please select a category</div>;
+  }
+  if (filteredTours.length === 0) {
+    return <div>No tours available for this category</div>;
+  }
   return (
     <div className="gallery">
       <div className="filter">
