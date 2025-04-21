@@ -7,7 +7,7 @@ import React, { useState } from "react";
 const TourCard = ({ id, name, price, info, image, onRemove }) => { //destructuring props
  const [readMore, setReadMore] = useState(false); //state to toggle read more
 
-
+//error handling done here
  return (
    <article className="tour-card">
      <img src={image} alt={name} />
